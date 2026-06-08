@@ -18,13 +18,13 @@ services:
         build:
             context: ./
         environment:
-            #- PHP_CRUD_API_DRIVER=mysql
+            - PHP_CRUD_API_DRIVER=mysql
             - PHP_CRUD_API_ADDRESS=database
-            #- PHP_CRUD_API_PORT=3306
-            #- PHP_CRUD_API_DATABASE=php-crud-api
-            #- PHP_CRUD_API_USERNAME=php-crud-api
-            #- PHP_CRUD_API_PASSWORD=php-crud-api
-            #- PHP_CRUD_API_DEBUG=1
+            - PHP_CRUD_API_PORT=3306
+            - PHP_CRUD_API_DATABASE=php-crud-api
+            - PHP_CRUD_API_USERNAME=php-crud-api
+            - PHP_CRUD_API_PASSWORD=php-crud-api
+            - PHP_CRUD_API_DEBUG=1
             - PHP_CRUD_API_MAPPING=abc_posts.abc_id=posts.id,abc_posts.abc_user_id=posts.user_id,abc_posts.abc_category_id=posts.category_id,abc_posts.abc_content=posts.content
         ports:
             - "8080:80"

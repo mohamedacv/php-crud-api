@@ -1,0 +1,30 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get code from GitHub
+        uses: actions/checkout@v4
+
+      - name: Start Docker containers
+        run: docker compose up -d --build
+
+      - name: Wait for API to start
+        run: sleep 15
+
+      - name: Check running containers
+        run: docker ps
+
+      - name: Test API is working
+        run: curl -f http://localhost:8080/api.php/status || exit 1
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down
