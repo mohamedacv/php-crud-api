@@ -47,7 +47,7 @@ jobs:
       - name: ✅ Run Tests
         run: |
           if [ -f test.php ]; then
-            php test.php
+            php test.php mysql:host=127.0.0.1 root root test_db
           else
             echo "No tests found, skipping..."
           fi
