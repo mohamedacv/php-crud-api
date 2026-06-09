@@ -7,8 +7,7 @@ on:
     branches: [ "main", "master" ]
 
 env:
-  DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/php-crud-api
-
+DOCKER_IMAGE: mohamed1511/php-crud-api
 jobs:
   test:
     name: 🧪 Run Tests
