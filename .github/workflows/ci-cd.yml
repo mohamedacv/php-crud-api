@@ -45,9 +45,15 @@ jobs:
           fi
 
       - name: ✅ Run Tests
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: root
+          DB_PASS: root
+          DB_NAME: test_db
         run: |
           if [ -f test.php ]; then
-            php test.php mysql:host=127.0.0.1 root root test_db
+            php test.php "mysql:host=127.0.0.1;port=3306;dbname=test_db" root root
           else
             echo "No tests found, skipping..."
           fi
